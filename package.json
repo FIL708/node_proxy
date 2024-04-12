@@ -1,0 +1,20 @@
+{
+  "name": "node_proxy",
+  "version": "1.0.0",
+  "description": "Node proxy server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FIL708/node_proxy.git"
+  },
+  "author": "Filip Zebrowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FIL708/node_proxy/issues"
+  },
+  "homepage": "https://github.com/FIL708/node_proxy#readme"
+}
