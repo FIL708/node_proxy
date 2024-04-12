@@ -12,5 +12,5 @@ const httpsAgent = new https.Agent({
 
 
 axios.get(fullUrl, { httpsAgent })
-    .then(res => console.log(res))
+    .then(res => console.log(res.data))
     .catch(error => console.error(error))
