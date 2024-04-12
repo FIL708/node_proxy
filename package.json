@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/FIL708/node_proxy/issues"
   },
-  "homepage": "https://github.com/FIL708/node_proxy#readme"
+  "homepage": "https://github.com/FIL708/node_proxy#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "config": "^3.3.11"
+  }
 }
