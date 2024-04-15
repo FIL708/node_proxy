@@ -10,7 +10,7 @@ const fullUrl = `${url}feed?start_date=2024-04-01&end_date=2024-04-05&api_key=${
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false
   });
-const getSomeMeteors = async (req, res) => {
+const getMeteors = async (req, res) => {
     try {
         const response = await axios.get(fullUrl, {httpsAgent})
 
@@ -20,4 +20,4 @@ const getSomeMeteors = async (req, res) => {
     }
 };
 
-module.exports = Router().get('/', getSomeMeteors)
+module.exports = Router().get('/', getMeteors)
