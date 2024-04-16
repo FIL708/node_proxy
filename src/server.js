@@ -1,9 +1,9 @@
-const express = require('express')
-const config = require('config')
-const meteors = require('./routes/meteors')
+const express = require("express");
+const config = require("config");
+const router = require("./routes");
 
-const PORT = config.get('PORT')
+const PORT = config.get("PORT");
 
 express()
-    .use('/meteors', meteors)
-    .listen(PORT, () => console.log(`Server started at: ${PORT}`))
+  .use("/", router)
+  .listen(PORT, () => console.log(`Server started at: ${PORT}`));
