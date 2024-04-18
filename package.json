@@ -1,0 +1,29 @@
+{
+  "name": "node_proxy",
+  "version": "1.0.0",
+  "description": "Node proxy server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FIL708/node_proxy.git"
+  },
+  "author": "Filip Zebrowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FIL708/node_proxy/issues"
+  },
+  "homepage": "https://github.com/FIL708/node_proxy#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "config": "^3.3.11",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
