@@ -1,7 +1,7 @@
 const express = require("express");
 const config = require("config");
 const router = require("./routes");
-const errorHandler = require("../middleware/error-handler.middleware.js");
+const errorHandler = require("./middleware/error-handler.middleware.js");
 
 const PORT = config.get("PORT");
 

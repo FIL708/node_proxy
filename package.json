@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/FIL708/node_proxy#readme",
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "axios": "^1.6.8",
     "config": "^3.3.11",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "joi": "^17.12.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
