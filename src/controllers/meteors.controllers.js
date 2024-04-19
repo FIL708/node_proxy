@@ -1,11 +1,10 @@
-const extractMeteorsData = require("../../helpers/extract-meteors");
-const meteorsService = require("../services/meteors.services");
+const meteorsService = require("../services/meteors.service.js");
 
 const getMeteors = async (req, res) => {
   try {
-    const rawMeteorsData = await meteorsService();
-    const extractedMeteorsData = extractMeteorsData(rawMeteorsData);
-    return res.json(extractedMeteorsData);
+    const meteorsData = await meteorsService.getByDateRange();
+
+    return res.json(meteorsData);
   } catch (error) {
     return res.status(500).json({ error });
   }

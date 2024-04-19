@@ -1,6 +1,7 @@
 const https = require("https");
 const axios = require("axios");
 const config = require("config");
+const extractMeteorsData = require("../../utils/extract-meteors.js");
 
 const key = config.get("API_KEY");
 const url = config.get("API_URL");
@@ -10,10 +11,14 @@ const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
 });
 
-const meteorsService = async () => {
+const getByDateRange = async () => {
   const response = await axios.get(fullUrl, { httpsAgent });
-  
-  return response.data["near_earth_objects"];
+
+  const extractedMeteorsData = extractMeteorsData(
+    response.data["near_earth_objects"]
+  );
+
+  return extractedMeteorsData;
 };
 
-module.exports = meteorsService;
+module.exports = { getByDateRange };
