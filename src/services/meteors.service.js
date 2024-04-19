@@ -5,13 +5,16 @@ const extractMeteorsData = require("../utils/extract-meteors.js");
 
 const key = config.get("API_KEY");
 const url = config.get("API_URL");
-const fullUrl = `${url}feed?start_date=2024-04-01&end_date=2024-04-05&api_key=${key}`;
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
 });
 
-const getByDateRange = async () => {
+const getByDateRange = async (start_date, end_date) => {
+  const fullUrl = `${url}feed?start_date=${start_date}${
+    end_date ? "&end_date=" + end_date : ""
+  }&api_key=${key}`;
+
   const response = await axios.get(fullUrl, { httpsAgent });
 
   const extractedMeteorsData = extractMeteorsData(
