@@ -1,0 +1,11 @@
+{% extends "../layouts/base.njk" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block content %}
+    <img class="rounded mb-2" style="height:380px;width:380px;" src='error.svg' alt="Not Found" />
+    <h1 class="display-2 text-danger fw-bold">{{statusCode}}<h1/>
+    <h4 class="display-6 fs-2 text-warning text-center">{{message}}<h4/>
+{% endblock %}
