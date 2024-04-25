@@ -11,8 +11,8 @@ const getMeteors = async (req, res, next) => {
     if (were_dangerous_meteors) is_dangerous = anyMeteorsHazardous(meteors);
 
     if (count) total = meteors.length;
-
-    return res.render('pages/meteors');
+    
+    return res.render("pages/meteors", { total, is_dangerous, meteors });
   } catch (error) {
     next(error);
   }

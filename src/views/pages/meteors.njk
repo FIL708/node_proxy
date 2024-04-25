@@ -5,5 +5,65 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Meteors</h1>
+    <h1 class="display-3">Meteors</h1>
+    <div class="d-flex flex-wrap my-4">
+        {% if total %}
+        <h4 class="mx-3">Total: {{total}}</h4>
+        {% endif %}
+
+        {% if is_dangerous is defined %}
+            <h4 class="mx-3">Is Any Dangerous: 
+            {% if is_dangerous %}
+                <span class="text-danger text-uppercase">{{is_dangerous}}</span>
+            {% else %}
+                <span class="text-success text-uppercase">{{is_dangerous}}</span>
+            {% endif %}
+            </h4>
+        {% endif %}
+    </div>
+
+    <ul class="d-flex flex-wrap justify-content-center gap-3">    
+        {% for meteor in meteors %}
+
+            <div class="card text-bg-dark" style="width: 22rem;">
+                
+                <div class="card-header">
+                    <h4 class="m-0 fs-6 text-info d-flex justify-content-between">{{meteor.name}}
+                        {% if meteor.is_potentially_hazardous_asteroid %}
+                            <span class="badge text-bg-danger ms-auto">Danger</span>
+                        {% else %}
+                            <span class="badge text-bg-primary ms-auto">Save</span>
+                        {% endif %}
+                    </h4>
+                    <span class="fs-6 text-secondary-emphasis">id: {{meteor.id}}</span>
+
+                    
+                </div>
+                <div class="card-body gap-2">
+                    <ul class="d-flex list-unstyled gap-3 mb-2">
+                        <li class="d-flex gap-2" style="width: 8rem;">
+                            <img src="/dimension.svg" alt="Minimum diameter" />
+                            min: {{meteor.diameter_in_meters.estimated_diameter_min}}
+                        </li>
+                        <li class="d-flex gap-2">
+                            <img src="/dimension.svg" alt="Maxiumum diameter" />
+                            max: {{meteor.diameter_in_meters.estimated_diameter_max}}
+                        </li>
+                    </ul>
+                    <ul class="d-flex list-unstyled gap-3">
+                        <li class="d-flex gap-2" style="width: 8rem;">
+                            <img src="/speed.svg" alt="Meteor speed" />
+                            {{meteor.relative_velocity_in_kilometers_per_second}} km/s
+                        </li>
+                        <li class="d-flex gap-2">
+                            <img src="/date.svg" alt="Date of meteor observation" />
+                            {{meteor.close_approach_date_full}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </ul>
+
 {% endblock %}
