@@ -6,12 +6,13 @@ const getMeteors = async (req, res, next) => {
     const { start_date, end_date, count, were_dangerous_meteors } = req.query;
 
     let total, is_dangerous;
+    
     const meteors = await meteorsService.getByDateRange(start_date, end_date);
 
     if (were_dangerous_meteors) is_dangerous = anyMeteorsHazardous(meteors);
 
     if (count) total = meteors.length;
-    
+
     return res.render("pages/meteors", { total, is_dangerous, meteors });
   } catch (error) {
     next(error);
