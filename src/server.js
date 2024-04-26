@@ -18,7 +18,6 @@ app
   .set("view engine", "njk")
   .use(express.static(path.join(__dirname, "public")))
   .use("/", router)
-  .get("/", (req, res) => res.render("pages/home"))
   .use(errorHandler)
   .use(notFound)
   .listen(PORT, () => console.log(`Server started at: ${PORT}`));
