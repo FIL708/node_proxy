@@ -17,6 +17,8 @@ nunjucks.configure("src/views", {
 app
   .set("view engine", "njk")
   .use(express.static(path.join(__dirname, "public")))
+  .use(express.json())
+  .use(express.urlencoded({ extended: true}))
   .use("/", router)
   .use(errorHandler)
   .use(notFound)

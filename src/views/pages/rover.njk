@@ -1,0 +1,34 @@
+{% extends "../layouts/base.njk" %}
+
+{% block title %}
+    Rover Form
+{% endblock %}
+
+{% block content %}
+
+    <form action="/rover" method="post" class="w-75 mb-4" style="max-width: 26rem; min-width:16rem">
+        <h3 class="text-primary mb-3">Send Your Cridentials</h3>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userId" placeholder="User ID" name="userId" required>
+            <label for="userId">User ID</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userName" placeholder="User name" name="userName" required>
+            <label for="userName">User name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="api" placeholder="API key" name="apiKey" required>
+            <label for="api">API key</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+    {% if photos %}
+        <ul class="list-unstyled d-flex gap-4 flex-wrap">
+            {% for photo in photos %}
+                <li>
+                    <img style="width: 20rem; height:20rem" src={{photo.img_src}} alt="Rover">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -4,7 +4,7 @@ const config = require("config");
 const extractMeteorsData = require("../utils/extract-meteors.js");
 
 const key = config.get("API_KEY");
-const url = config.get("API_URL");
+const url = config.get("METEOR_URL");
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
