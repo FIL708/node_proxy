@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const roverController = require("../controllers/rover.controller.js");
+const { bodyValidation } = require("../middleware/validation.middleware.js");
+const { roverFormSchema } = require("../validators/rover.validators.js");
 
 module.exports = Router()
   .get("/", roverController.getRoverPage)
-  .post("/", roverController.postUserData);
+  .post("/", bodyValidation(roverFormSchema), roverController.postUserData);
