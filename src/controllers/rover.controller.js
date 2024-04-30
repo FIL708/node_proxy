@@ -1,4 +1,4 @@
-const { getLastRoverPhotos } = require("../services/rover.service");
+const roversService = require("../services/rover.service");
 
 const getRoverPage = (req, res) => {
   return res.render("pages/rover");
@@ -9,7 +9,7 @@ const postUserData = async (req, res, next) => {
     const { userId, apiKey, userName } = req.body;
     console.log(userId, apiKey, userName);
 
-    const photos = await getLastRoverPhotos();
+    const photos = await roversService.getLastRoverPhotos();
 
     return res.render("pages/rover", { photos });
   } catch (error) {

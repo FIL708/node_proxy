@@ -15,7 +15,7 @@ const meteorsQuerySchema = Joi.object({
   start_date: Joi.date().max("now").format(["YYYY-MM-DD"]).required(),
   end_date: Joi.date()
     .max("now")
-    .greater(Joi.ref("start_date"))
+    .min(Joi.ref("start_date"))
     .format(["YYYY-MM-DD"])
     .custom(maxDaysValidator),
   count: Joi.boolean(),
