@@ -23,10 +23,10 @@
         <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
     {% if photos %}
-        <ul class="list-unstyled d-flex gap-4 flex-wrap">
+        <ul class="list-unstyled d-flex gap-4 flex-wrap justify-content-center">
             {% for photo in photos %}
                 <li>
-                    <img style="width: 20rem; height:20rem" src={{photo.img_src}} alt="Rover">
+                    <img class="img-thumbnail" style="width: 20rem; height:20rem" src={{photo.img_src}} alt="Rover">
                 </li>
             {% endfor %}
         </ul>
