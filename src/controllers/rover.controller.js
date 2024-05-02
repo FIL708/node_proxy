@@ -11,7 +11,7 @@ const postUserData = async (req, res, next) => {
 
     const photos = await roversService.getLastRoverPhotos();
 
-    return res.render("pages/rover", { photos });
+    return res.render("pages/rover-photos", { photos });
   } catch (error) {
     next(error);
   }
