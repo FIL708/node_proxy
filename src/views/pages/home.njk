@@ -5,15 +5,22 @@
 {% endblock %}
 
 {% block content %}
-    <section class='d-flex justify-content-center align-items-center gap-2 flex-wrap'>
-        <div class='container' style="max-width: 48rem">
-            <h1 class="display-4 text-primary fw-semibold">NASA Proxy Server</h1>
-            <p class="fs-5">Unleash the cosmos with my NASA API Proxy Server! Your gateway to space adventures awaits. Ready to explore?</p>  
-            <div class="text-center">
-                <img class="mb-2" style="height:340px;width:340px;" src='/home.svg' alt="Astronaut" />
-            </div>
+    <section class='d-flex flex-column justify-content-center align-items-center gap-2 flex-wrap vw-100'
+    style="
+        min-height:36rem;
+        background-image: url('/images/home-background.jpg');
+        background-size: cover;">
+        <h1 class="display-4 fw-semibold" style="text-shadow: 1px 1px 2px #000;">NASA Proxy Server</h1>
+        <p class="fs-5" style="text-shadow: 1px 1px 2px #000;">Unleash the cosmos with my NASA API Proxy Server! Your gateway to space adventures awaits. Ready to explore?</p>
+        <div class="d-flex gap-3">
+            <a href="/meteors" class="btn btn-primary d-flex flex-column align-items-center justify-content-center shadow-lg" style="width: 6rem; height: 6rem">
+                <img src="/icons/meteor.svg" alt="Meteor" style="width: 3rem; filter: drop-shadow(2px 2px 2px rgb(0, 0, 0, 0.7));">
+                <span class="text-white" style="text-shadow: 1px 1px 2px #000;">Meteors</span>
+            </a>
+            <a href="/rover" class="btn btn-warning d-flex flex-column align-items-center justify-content-center shadow-lg" style="width: 6rem; height: 6rem">
+                <img src="/icons/rover.svg" alt="Rover" style="width: 3rem; filter: drop-shadow(2px 2px 2px rgb(0, 0, 0, 0.7));">
+                <span class="text-white" style="text-shadow: 1px 1px 2px #000;">Rover</span>
+            </a>
         </div>
-        
-
     </section>
 {% endblock %}
