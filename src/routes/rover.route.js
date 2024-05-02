@@ -4,5 +4,5 @@ const { bodyValidation } = require("../middleware/validation.middleware.js");
 const { roverFormSchema } = require("../validators/rover.validators.js");
 
 module.exports = Router()
-  .get("/", roverController.getRoverPage)
-  .post("/", bodyValidation(roverFormSchema), roverController.postUserData);
+  .get("/", roverController.getForm)
+  .post("/", bodyValidation(roverFormSchema), roverController.postRover);
