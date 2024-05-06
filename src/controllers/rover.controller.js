@@ -6,12 +6,12 @@ const getForm = (req, res) => {
 
 const postRover = async (req, res, next) => {
   try {
-    const { userId, apiKey, userName } = req.body;
-    console.log(userId, apiKey, userName);
+    const { userName, userId, apiKey } = req.body;
+    console.log(userName, userId, apiKey);
 
     const photos = await roversService.getLastRoverPhotos();
 
-    return res.render("pages/rover", { photos });
+    return res.render("pages/rover", { photos, userName });
   } catch (error) {
     next(error);
   }
