@@ -1,0 +1,22 @@
+{
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:node/recommended",
+        "airbnb-base",
+        "plugin:promise/recommended",
+        "plugin:security/recommended-legacy",
+        "prettier"
+    ],
+    "rules": {
+        "import/extensions": "off",
+        "camelcase": "off",
+        "consistent-return": "off",
+        "no-plusplus": "off",
+        "no-console": "off",
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }]
+    }
+}
