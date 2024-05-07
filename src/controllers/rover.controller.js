@@ -1,4 +1,4 @@
-const roversService = require('../services/rover.service');
+const roversService = require('../services/rover.service.js');
 
 const getForm = (req, res) => res.render('pages/rover-form');
 

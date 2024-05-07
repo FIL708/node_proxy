@@ -5,4 +5,8 @@ const { meteorsQuerySchema } = require('../validators/meteors.validators.js');
 
 module.exports = Router()
     .get('/', meteorsController.getForm)
-    .get('/data', queryValidation(meteorsQuerySchema), meteorsController.getMeteors);
+    .get(
+        '/data',
+        queryValidation(meteorsQuerySchema),
+        meteorsController.getMeteors
+    );

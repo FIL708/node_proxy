@@ -1,5 +1,4 @@
 const dayjs = require('dayjs');
-
 const Joi = require('joi').extend(require('@joi/date'));
 
 const maxDaysValidator = (value, helpers) => {
@@ -14,13 +13,14 @@ const maxDaysValidator = (value, helpers) => {
 };
 
 const meteorsQuerySchema = Joi.object({
-    start_date: Joi.date().max('now').format(['YYYY-MM-DD']).required(),
+    start_date: Joi.required().date().max('now').format(['YYYY-MM-DD']),
     end_date: Joi.date()
+        .required()
         .max('now')
         .min(Joi.ref('start_date'))
-        .format(['YYYY-MM-DD'])
         .allow(Joi.ref('start'))
-        .custom(maxDaysValidator),
+        .custom(maxDaysValidator)
+        .format(['YYYY-MM-DD']),
     count: Joi.boolean(),
     were_dangerous_meteors: Joi.boolean()
 });

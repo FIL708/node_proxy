@@ -3,7 +3,8 @@ const meteorsService = require('../services/meteors.service.js');
 
 const getMeteors = async (req, res, next) => {
     try {
-        const { start_date, end_date, count, were_dangerous_meteors } = req.query;
+        const { start_date, end_date, count, were_dangerous_meteors } =
+            req.query;
 
         const meteorsData = await meteorsService.getMeteorsData(
             start_date,
@@ -18,10 +19,9 @@ const getMeteors = async (req, res, next) => {
     }
 };
 
-const getForm = (req, res) => {
+const getForm = (req, res) =>
     res.render('pages/meteors-form', {
         maxDate: dayjs().format('YYYY-MM-DD')
     });
-};
 
 module.exports = { getMeteors, getForm };

@@ -15,9 +15,9 @@ const getLastRoverPhotos = async () => {
     const response = await axios.get(fullUrl, { httpsAgent });
 
     const lastDate = await response.data.photos[0].rover.max_date;
-    const latestDataUrl = `${url}photos?earth_date=${lastDate}&camera=fhaz&api_key=${key}`;
+    const latestPhotosUrl = `${url}photos?earth_date=${lastDate}&camera=fhaz&api_key=${key}`;
 
-    const { data } = await axios.get(latestDataUrl, { httpsAgent });
+    const { data } = await axios.get(latestPhotosUrl, { httpsAgent });
 
     return data.photos;
 };
