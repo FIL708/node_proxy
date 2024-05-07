@@ -44,9 +44,7 @@ const getMeteorsData = async (
     count,
     wereDangerousMeteors
 ) => {
-    const fullUrl = `${url}feed?start_date=${startDate}${
-        endDate ? `&end_date=${endDate}` : ''
-    }&api_key=${apiKey}`;
+    const fullUrl = `${url}feed?start_date=${startDate}&end_date=${endDate}api_key=${apiKey}`;
 
     let total;
     let isDangerous;

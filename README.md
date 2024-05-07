@@ -1,6 +1,7 @@
 # Node Proxy Server
 
 ## Get started
+
 Install dependecies `npm install`
 
 Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) vscode extension
@@ -22,11 +23,13 @@ Start development mode `npm run dev`
 Go to `http://localhost:4000`
 
 ## Format & Lint
+
 Format code `npm run format`
 
 Eslint check `npm run lint`
 
 ## Useful links
-- [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [NASA API](https://api.nasa.gov/)
+
+-   [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [NASA API](https://api.nasa.gov/)
