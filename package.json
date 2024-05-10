@@ -28,7 +28,9 @@
         "dayjs": "^1.11.10",
         "express": "^4.19.2",
         "joi": "^17.12.3",
-        "nunjucks": "^3.2.4"
+        "nunjucks": "^3.2.4",
+        "pino": "^9.0.0",
+        "pino-pretty": "^11.0.0"
     },
     "devDependencies": {
         "eslint": "^8.57.0",

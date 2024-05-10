@@ -46,16 +46,15 @@ const getMeteorsData = async (
 ) => {
     const fullUrl = `${url}feed?start_date=${startDate}&end_date=${endDate}api_key=${apiKey}`;
 
-    let total;
-    let isDangerous;
-
     const { data } = await axios.get(fullUrl, { httpsAgent });
 
     const meteors = extractMeteorsData(data.near_earth_objects);
 
-    if (wereDangerousMeteors) isDangerous = anyMeteorsHazardous(meteors);
+    const isDangerous = wereDangerousMeteors
+        ? anyMeteorsHazardous(meteors)
+        : undefined;
 
-    if (count) total = data.element_count;
+    const total = count ? data.element_count : undefined;
 
     return { meteors, total, isDangerous };
 };

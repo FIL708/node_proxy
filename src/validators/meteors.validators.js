@@ -13,7 +13,7 @@ const maxDaysValidator = (value, helpers) => {
 };
 
 const meteorsQuerySchema = Joi.object({
-    start_date: Joi.required().date().max('now').format(['YYYY-MM-DD']),
+    start_date: Joi.date().required().max('now').format(['YYYY-MM-DD']),
     end_date: Joi.date()
         .required()
         .max('now')
