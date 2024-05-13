@@ -1,18 +1,20 @@
-const https = require('https');
-const axios = require('axios');
-const config = require('config');
+import https from 'https';
+import axios from 'axios';
+import config from 'config';
 
-const apiKey = config.get('API_KEY');
-const url = config.get('METEOR_URL');
+import { ExtractedMeteor, NearEarthItems, MeteorsData } from '../types/meteors';
+
+const key: string = config.get('API_KEY');
+const url: string = config.get('METEOR_URL');
 
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false
 });
 
-const anyMeteorsHazardous = (meteros) =>
+const anyMeteorsHazardous = (meteros: ExtractedMeteor[]): boolean =>
     meteros.some((meteor) => meteor.is_potentially_hazardous_asteroid);
 
-const extractMeteorsData = (rawData) =>
+const extractMeteorsData = (rawData: NearEarthItems): ExtractedMeteor[] =>
     Object.entries(rawData).flatMap(([_, value]) =>
         value.map((meteor) => ({
             id: meteor.id,
@@ -38,25 +40,24 @@ const extractMeteorsData = (rawData) =>
         }))
     );
 
-const getMeteorsData = async (
-    startDate,
-    endDate,
-    count,
-    wereDangerousMeteors
+export const getMeteorsData = async (
+    startDate?: string,
+    endDate?: string,
+    count?: boolean,
+    wereDangerousMeteors?: boolean
 ) => {
-    const fullUrl = `${url}feed?start_date=${startDate}&end_date=${endDate}api_key=${apiKey}`;
-
-    const { data } = await axios.get(fullUrl, { httpsAgent });
+    const { data }: { data: MeteorsData } = await axios.get(url, {
+        httpsAgent,
+        params: { start_date: startDate, end_date: endDate, api_key: key }
+    });
 
     const meteors = extractMeteorsData(data.near_earth_objects);
 
-    const isDangerous = wereDangerousMeteors
+    const isDangerous: boolean | undefined = wereDangerousMeteors
         ? anyMeteorsHazardous(meteors)
         : undefined;
 
-    const total = count ? data.element_count : undefined;
+    const total: number | undefined = count ? data.element_count : undefined;
 
     return { meteors, total, isDangerous };
 };
-
-module.exports = { getMeteorsData };
