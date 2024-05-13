@@ -1,0 +1,37 @@
+{% extends "../layouts/base.njk" %}
+
+{% block title %}
+    Meteors - Form
+{% endblock %}
+
+{% block content %}
+    <h1 class="display-3 mb-5">Meteors</h1>
+
+    <section class='container d-flex justify-content-around align-items-center gap-5 flex-wrap'>
+        <img class="rounded-circle border border-4 shadow-lg object-fit-cover" style="max-width: 22rem; min-width: 14rem" src="/images/meteors.svg" alt="Meteors">
+
+        <form id="meteors" class="w-100 mb-4" style="max-width: 26rem; min-width:16rem" action="/meteors/data" method="GET">
+            <h4 class="text-primary">Set meteors dates</h4>
+            <div class="mb-3">
+                <label for="start_date" class="form-label">Start date</label>
+                <input type="date" class="form-control" name="start_date" id="start_date" aria-describedby="startHelp" max={{maxDate}} required>
+                <div id="startHelp" class="form-text">Required</div>
+            </div>
+            <div class="mb-3">
+                <label for="end_date" class="form-label">End date</label>
+                <input type="date" class="form-control" name="end_date" id="end_date" max={{maxDate}}>
+                <div id="endHelp" class="form-text">Required</div>
+                <div id="endHelp" class="form-text">Max. date range: 7 days</div>
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" name="count" id="count" value="true">
+                <label class="form-check-label" for="count">Show total count</label>
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" name="were_dangerous_meteors" id="were_dangerous_meteors" value="true">
+                <label class="form-check-label" for="were_dangerous_meteors">Earth Hazard Alert</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </section>
+{% endblock %}

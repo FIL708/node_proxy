@@ -1,0 +1,12 @@
+{% extends "../layouts/base.njk" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block content %}
+    <img class="rounded mb-2" style="height:340px;width:340px;" src='/images/error.svg' alt="Not Found" />
+    <h1 class="display-2 text-danger fw-bold">{{statusCode}}<h1/>
+    <h4 class="display-6 fs-4 text-center">{{message}}<h4/>
+    <a href="/" class="btn btn-primary mt-2" role="button">Back to Home</a>
+{% endblock %}
