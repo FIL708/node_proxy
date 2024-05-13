@@ -4,8 +4,8 @@ import config from 'config';
 
 import { ExtractedMeteor, NearEarthItems, MeteorsData } from '../types/meteors';
 
-const key: string = config.get('API_KEY');
-const url: string = config.get('METEOR_URL');
+const KEY: string = config.get('API_KEY');
+const URL: string = config.get('METEOR_URL');
 
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false
@@ -46,9 +46,9 @@ export const getMeteorsData = async (
     count?: boolean,
     wereDangerousMeteors?: boolean
 ) => {
-    const { data }: { data: MeteorsData } = await axios.get(url, {
+    const { data }: { data: MeteorsData } = await axios.get(URL, {
         httpsAgent,
-        params: { start_date: startDate, end_date: endDate, api_key: key }
+        params: { start_date: startDate, end_date: endDate, api_key: KEY }
     });
 
     const meteors = extractMeteorsData(data.near_earth_objects);

@@ -14,6 +14,7 @@ Create `default.json` config file in `./config` folder
     "API_KEY": "your_api_hey or DEMO_KEY with bigger limitation",
     "METEOR_URL": "https://api.nasa.gov/neo/rest/v1/",
     "ROVER_URL": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/",
+    "SENTRY_URL": "your Sentry dns"
     "PORT": 4000,
 }
 ```

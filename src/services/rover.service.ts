@@ -4,24 +4,24 @@ import config from 'config';
 
 import { RoverPhoto } from '../types/rover';
 
-const key: string = config.get('API_KEY');
-const url: string = config.get('ROVER_URL');
+const KEY: string = config.get('API_KEY');
+const URL: string = config.get('ROVER_URL');
 
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false
 });
 
 export const getLastRoverPhotos = async (): Promise<RoverPhoto[]> => {
-    const response = await axios.get(url, {
+    const response = await axios.get(URL, {
         httpsAgent,
-        params: { sol: 1000, camera: 'fhaz', api_key: key }
+        params: { sol: 1000, camera: 'fhaz', api_key: KEY }
     });
 
     const lastDate: string = await response.data.photos[0].rover.max_date;
 
-    const { data } = await axios.get(url, {
+    const { data } = await axios.get(URL, {
         httpsAgent,
-        params: { earth_date: lastDate, camera: 'fhaz', api_key: key }
+        params: { earth_date: lastDate, camera: 'fhaz', api_key: KEY }
     });
 
     return data.photos;

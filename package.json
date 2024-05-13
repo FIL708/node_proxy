@@ -24,6 +24,8 @@
     "homepage": "https://github.com/FIL708/node_proxy#readme",
     "dependencies": {
         "@joi/date": "^2.1.0",
+        "@sentry/node": "^7.114.0",
+        "@sentry/profiling-node": "^7.114.0",
         "axios": "^1.6.8",
         "config": "^3.3.11",
         "dayjs": "^1.11.10",

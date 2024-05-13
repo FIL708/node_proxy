@@ -11,6 +11,8 @@ export const errorHandler = (
     if (err instanceof HttpError) {
         const { statusCode, message } = err;
 
+        logger.error(err);
+
         return res
             .status(statusCode)
             .render('pages/error', { statusCode, message });
