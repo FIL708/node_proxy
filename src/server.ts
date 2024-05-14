@@ -1,6 +1,7 @@
 import path from 'path';
 import express, { Application } from 'express';
 import config from 'config';
+import helmet from 'helmet';
 import nunjucks from 'nunjucks';
 import * as Sentry from '@sentry/node';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
@@ -34,6 +35,7 @@ app.set('view engine', 'njk')
     .use(express.static(path.join(__dirname, 'public')))
     .use(express.json())
     .use(express.urlencoded({ extended: true }))
+    .use(helmet())
     .use(Sentry.Handlers.requestHandler())
     .use(Sentry.Handlers.tracingHandler())
     .use('/', routes)
